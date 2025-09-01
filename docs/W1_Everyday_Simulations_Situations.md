@@ -2,7 +2,7 @@
 
 ## Situation : Driving Simulation (That is Learning Driving in Simulation Cars)
 
-** What aspects of the situation make the simulation approach specifically appropriate for analyzing the situation **
+**What aspects of the situation make the simulation approach specifically appropriate for analyzing the situation**
 
 - A simulator allows safe, repeated practice without damaging vehicles or risking human life.
 - Practicing dangerous conditions (like in rain, fog, snow, night driving, heavy traffic) in real life could cause accidents and put people's life at risk but with simulation you can avoid this things.
