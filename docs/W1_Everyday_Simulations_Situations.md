@@ -10,12 +10,12 @@
 - It’s also cost-effective: no fuel costs, no wear-and-tear, no insurance risk.
 
 
-** Why simulation would be specifically better than experimenting in the real world? **
+**Why simulation would be specifically better than experimenting in the real world?**
 - Testing safe for errors is possible only in simulations  for example too late braking and also by doing this they have insights on better understanding on using brakes at right time.
 - You can repeat same dangeros scenario for instance sharp corner many times which is impossible to guarantee in the real world.
 - Real experiments would require extreme weather setups or waiting for rare conditions (fog, ice).
 
-** What aspects of sustainability can you incorporate into the simulation? **
+**What aspects of sustainability can you incorporate into the simulation?**
 - **Reduced emissions**: less fuel burned during training sessions compared to using real cars.
 - **Energy efficiency**: electricity for simulators is less resource-intensive than constant driving practice.
 - **Safety = sustainability**: fewer accidents reduce material waste (damaged cars, repairs, medical costs).
