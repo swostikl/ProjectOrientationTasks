@@ -1,9 +1,9 @@
 # W2 – Observed Operational System (Supermarket)
 
 **Variability**
-- ** Customer Arrivals and Demand Fluctuations  : ** Customer arrival times vary (rush hours vs quiet times) and at different times like day, week, month and a yea.
-- ** Basket Size: ** number of items per customer (could be Normal, Exponential, etc.).
-- ** Staff vailabilty : ** Employee shifts, absences, and turnover.
+- **Customer Arrivals and Demand Fluctuations  :** Customer arrival times vary (rush hours vs quiet times) and at different times like day, week, month and a yea.
+- **Basket Size:** number of items per customer (could be Normal, Exponential, etc.).
+- **staff vailabilty :** Employee shifts, absences, and turnover.
 - Service times vary depending on payment type.
   
 
