@@ -8,6 +8,89 @@
 ## Task 2
 **Define the Event and EventList classes so that the EventList can be used to get the Event objects processed in the correct chronological order. The Event is associated with an event time as an essential piece of information, and it is essential that the next event in the event list can be retrieved on demand.**
 
+```java
+package task2;
+
+import java.time.LocalDateTime;
+
+public class EventTestProgram {
+    public static void main(String[] args) {
+        EventList eventList = new EventList();
+
+        // Adding events
+        eventList.addEvent(new Event("Event 1", LocalDateTime.of(2023, 10, 1, 10, 0)));
+        eventList.addEvent(new Event("Event 2", LocalDateTime.of(2023, 9, 15, 9, 30)));
+        eventList.addEvent(new Event("Event 3", LocalDateTime.of(2023, 11, 5, 14, 0)));
+
+        // Retrieving and printing ordered events
+        System.out.println("Ordered Events:");
+        for (Event event : eventList.getOrderedEvents()) {
+            System.out.println(event);
+        }
+
+        // Getting the next event
+        System.out.println("\nNext Event:");
+        System.out.println(eventList.getNextEvent());
+    }
+}
+```
+```java
+
+package task2;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.PriorityQueue;
+
+public class EventList {
+    private PriorityQueue<Event> eventQueue;
+
+    public EventList() {
+        eventQueue = new PriorityQueue<>();
+    }
+    public void addEvent(Event event) {
+        eventQueue.add(event);
+    }
+    public Event getNextEvent() {
+        return eventQueue.poll(); // retrieves and removes the next event
+    }
+    public List<Event> getOrderedEvents() {
+       // create copy of the priority queue to avoid modifying the original
+        PriorityQueue<Event> copyQueue = new PriorityQueue<>(eventQueue);
+        List<Event> orderedEvents = new ArrayList<>();
+        while (!copyQueue.isEmpty()) {
+            orderedEvents.add(copyQueue.poll());
+        }
+        return orderedEvents;
+    }
+}
+```
+```java
+package task2;
+
+import java.time.LocalDateTime;
+
+public class EventTestProgram {
+    public static void main(String[] args) {
+        EventList eventList = new EventList();
+
+        // Adding events
+        eventList.addEvent(new Event("Event 1", LocalDateTime.of(2023, 10, 1, 10, 0)));
+        eventList.addEvent(new Event("Event 2", LocalDateTime.of(2023, 9, 15, 9, 30)));
+        eventList.addEvent(new Event("Event 3", LocalDateTime.of(2023, 11, 5, 14, 0)));
+
+        // Retrieving and printing ordered events
+        System.out.println("Ordered Events:");
+        for (Event event : eventList.getOrderedEvents()) {
+            System.out.println(event);
+        }
+
+        // Getting the next event
+        System.out.println("\nNext Event:");
+        System.out.println(eventList.getNextEvent());
+    }
+}
+```
 ## Task3
 
 **codeko lagi garne tarika talako just example paxi task garda samjhine**
