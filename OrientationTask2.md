@@ -93,13 +93,114 @@ public class EventTestProgram {
 ```
 ## Task3
 
-**codeko lagi garne tarika talako just example paxi task garda samjhine**
+```java
+package task3;
+
+public enum EventType {
+    ARRIVAL,
+    EXIT
+}
+```
+
 
 ```java
-public class Task_1 {
-    public static void main(String[] args){
-        System.out.println(" Good morning! Swostika !");
+package task3;
+
+import java.time.LocalDateTime;
+
+public class Event implements Comparable<Event> {
+    private String name;
+    private LocalDateTime eventTime;
+    private EventType eventType;
+
+    public Event(String name, LocalDateTime eventTime, EventType eventType) {
+        this.name = name;
+        this.eventTime = eventTime;
+        this.eventType = eventType;
     }
 
+    public LocalDateTime getEventTime() {
+        return eventTime;
+    }
+
+    public EventType getEventType() {
+        return eventType;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public int compareTo(Event other) {
+        return this.eventTime.compareTo(other.eventTime);
+    }
+    @Override
+    public String toString() {
+        return "[" + eventType + "] " + name + " at " + eventTime;
+    }
 }
+
+```
+
+```java
+
+package task3;
+
+import java.util.PriorityQueue;
+import java.util.List;
+import java.util.ArrayList;
+
+public class EventList {
+    private PriorityQueue<Event> queue;
+
+    public EventList() {
+        queue = new PriorityQueue<>();
+    }
+
+    public void addEvent(Event event) {
+        queue.add(event);
+    }
+
+    public Event getNextEvent() {
+        return queue.poll();
+    }
+
+    public List<Event> getOrderedEvents() {
+        PriorityQueue<Event> copy = new PriorityQueue<>(queue);
+        List<Event> ordered = new ArrayList<>();
+        while (!copy.isEmpty()) {
+            ordered.add(copy.poll());
+        }
+        return ordered;
+    }
+}
+
+```
+```java
+
+import java.time.LocalDateTime;
+
+public class EventTest {
+    public static void main(String[] args) {
+        EventList eventList = new EventList();
+
+        // a) Generate events with types
+        eventList.addEvent(new Event("Train arrives", LocalDateTime.of(2025, 9, 3, 8, 0), EventType.ARRIVAL));
+        eventList.addEvent(new Event("Passenger exits", LocalDateTime.of(2025, 9, 3, 8, 5), EventType.EXIT));
+        eventList.addEvent(new Event("Bus arrives", LocalDateTime.of(2025, 9, 3, 9, 0), EventType.ARRIVAL));
+        eventList.addEvent(new Event("Driver exits", LocalDateTime.of(2025, 9, 3, 9, 15), EventType.EXIT));
+
+        // b) Remove and print the next event
+        System.out.println("Next event to process:");
+        System.out.println(eventList.getNextEvent());
+
+        // c) Print remaining events in chronological order
+        System.out.println("\nRemaining events in order:");
+        for (Event e : eventList.getOrderedEvents()) {
+            System.out.println(e);
+        }
+    }
+}
+
 ```
