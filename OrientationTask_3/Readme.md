@@ -15,7 +15,7 @@ details to be able to program it directly.**
 - Optionally, calculate and print the percentage of each age.
 
 # Task2 P (Implementing the task1 programmatically)
-```
+
 ```java
 package task2;
 
@@ -89,13 +89,13 @@ constructor is private which is accessed through a public static method like get
 
 - Tossing a Coin: Multiple tosses approximate 50% heads.
 
-2. Poisson Distribution : Counts the number of rare events happening in a fixed interval of time or space.
+1. Poisson Distribution : Counts the number of rare events happening in a fixed interval of time or space.
 - Use in simulations: Modeling random arrivals or occurrences over time.
 - Examples: Number of customers arriving at a bank per hour, number of calls at a call center.
 
 
 # Task 5
-```
+
 ```java
 
 package task5;
@@ -156,3 +156,74 @@ class ClockTest{
 ```
 
 # task 6
+
+```java
+package task6;
+
+class Event {
+    double time;
+    String type;
+
+    public Event(double time, String type) {
+        this.time = time;
+        this.type = type;
+    }
+
+    @Override
+    public String toString() {
+        return "Event[ type = " + type + ", time = " + time + "]";
+    }
+}
+```
+```java
+package task6;
+
+import java.util.List;
+import distributions.Uniform;
+
+public class ArrivalProcess {
+    private String eventType;
+    private Uniform generator; // actual random generator
+
+    public ArrivalProcess(String eventType, double minInterval, double maxInterval){
+        this.eventType = eventType;
+        this.generator = new Uniform(minInterval, maxInterval);
+    }
+    // new event is added
+    public void addEvent(List<Event> eventList, double currentTime){
+        double interval = generator.sample(); //generate random number
+        double eventTime = currentTime + interval;
+        Event newEvent = new Event(eventTime, eventType);
+        eventList.add(newEvent);
+    }
+}
+
+```
+
+```java
+package task6;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class ArrivalProcessTest {
+    public static void main(String[] args) {
+        List<Event> eventList = new ArrayList<>();
+        ArrivalProcess arrivals = new ArrivalProcess("Customer",  1.0,5.0);
+
+        double currentTime = 0.0;
+        for (int i = 0; i < 10; i++) { // generate 10 events
+            arrivals.addEvent(eventList, currentTime);
+            // Move clock to the time of the last event
+            currentTime = eventList.get(eventList.size() - 1).time;
+        }
+
+        // Print all events
+        for (Event e : eventList) {
+            System.out.println(e);
+        }
+    }
+}
+
+
+```
