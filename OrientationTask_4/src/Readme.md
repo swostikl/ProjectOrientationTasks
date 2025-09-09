@@ -1,5 +1,5 @@
-# Task 1 
-1. **Using an example case (health centre, bank, etc.), discuss the meaning and characterisation of all the performance 
+# Task 1
+**Using an example case (health centre, bank, etc.), discuss the meaning and characterisation of all the performance 
 measures discussed in the lesson material using the concepts of the target system.**
 
 In Health center:
@@ -15,13 +15,14 @@ In Health center:
 
 
 
-2. **Consider the categories in which performance measures are maintained/updated/computed. (Think in general terms: 
+# Task 2
+**Consider the categories in which performance measures are maintained/updated/computed. (Think in general terms: 
 service point/customer; not in target system terms.)**
 
-Let's take an example of Health Center. Here Patients are arriving for different purpose and service-point is
-Reception i.e doctor 1, nurse 1, or doctor2.
+Answer : Let's take an example of Health Center. In this case patients represent the customers, and service points are areas 
+such as Reception, Doctor1, Doctor 2 or Nurse. Here performance measures can be categorised as service point metrices and Customer metrices.
 
-
+# Task3
 3. **Design two different systems of three or four service points for a real-world destination. Use real-world concepts. 
 Draw diagrams using the graphical representation of a service point shown in section ´Performance Variables´.**
 
@@ -30,8 +31,8 @@ For Health center:
 
 ![img.png](img.png)
 
-
-4. **Write an algorithm in Java or pseudocode for the main loop of the simulator: The main loop does all the things 
+# Task 4
+**Write an algorithm in Java or pseudocode for the main loop of the simulator: The main loop does all the things 
 required for a three-phase simulation (presented in a section). Think in general terms (don't think in detail) and present
 a general solution. No need for target system concepts.**
 
@@ -65,7 +66,7 @@ END SWITCH
 
 
 
-5. **Using the names of the simulator classes, explain the simulator a) what A-phase coding means? b) what coding B-events 
+**Using the names of the simulator classes, explain the simulator a) what A-phase coding means? b) what coding B-events 
 mean? c) what coding C events means?**
 
 **A-Phase (Advance clock):**
